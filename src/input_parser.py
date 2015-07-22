@@ -43,19 +43,31 @@ def validate_args(conf):
 
 def _get():
     parser = argparse.ArgumentParser()
-    sp = parser.add_subparsers()
-    
+ #   sp = parser.add_subparsers()
+    method = parser.add_mutually_exclusive_group(required=True)    
 
-    sp_count = sp.add_parser('count', help='Cuts of features, that have less than x occurences')
-    
-    sp_count.add_argument('-x', action='store', dest='limit',
-                                help='Min occurences needed. Default 250',
+    method.add_argument('-c', action='store', dest='mincount',
+                                help='Min count of occurences',
+                                default=250)
+
+    method.add_argument('-m', action='store', dest='mincount',
+                                help='Min count of features',
                                 default=250)
     
-
-    sp_lines = sp.add_parser('lines', help='Stops %(prog)s daemon')
-    sp_plines = sp.add_parser('plines', help='Restarts %(prog)s daemon')
-
+    method.add_argument('-p', action='store', dest='mincount',
+                                help='Min percent of max occurences',
+                                default=250)
+    
+#    sp_count = sp.add_parser('count', help='Cuts of features, that have less than x occurences')
+#    
+#    sp_count.add_argument('-x', action='store', dest='limit',
+#                                help='Min occurences needed. Default 250',
+#                                default=250)
+#    
+#
+#    sp_lines = sp.add_parser('lines', help='Stops %(prog)s daemon')
+#    sp_plines = sp.add_parser('plines', help='Restarts %(prog)s daemon')
+#
     parser.add_argument('-f', action='store', dest='in_file',
                                 help='Input file in Vopal Wabbit input format',
                                 default='input.vw')
@@ -76,9 +88,9 @@ def _get():
                                 help='String made of concatenated first laters of namespaces',
                                 default='h')
 
-    parser.add_argument('-c', action='store', dest='occurence',
-                                help='Cut top C of occurences',
-                                default=250)
+#    parser.add_argument('-c', action='store', dest='occurence',
+#                                help='Cut top C of occurences',
+#                                default=250)
 
 #    parser.add_argument('-l', action='store_true', default=False,
 #                                dest='clog',
