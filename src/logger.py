@@ -20,7 +20,7 @@ first = {
                 'level':'DEBUG',
                 'class':'logging.handlers.RotatingFileHandler',
                 'formatter':'standard',
-                'filename':'logs/work.log',
+                'filename':'/home/model/logs/ffeature.log',
                 'backupCount':10,
                 },
             },
@@ -56,7 +56,7 @@ simple_no_file = {
                 'level':'DEBUG',
                 'class':'logging.handlers.RotatingFileHandler',
                 'formatter':'standard',
-                'filename':'logs/work.log',
+                'filename':'/home/model/logs/ffeature.log',
                 'backupCount':10,
                 },
             },
@@ -78,3 +78,5 @@ def start_logger(id):
         dictConfig(first)
     elif id==1:
         dictConfig(simple_no_file)
+
+

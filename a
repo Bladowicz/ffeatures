@@ -1,3 +1,0 @@
-if occ < Z
-if occ < (Z/100)*wc -l
-if 
